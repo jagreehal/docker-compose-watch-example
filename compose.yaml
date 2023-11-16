@@ -1,0 +1,17 @@
+services:
+  web:
+    build: .
+    command: 'node --watch web/index.js'
+    ports:
+      - 8000:8000
+    develop:
+      watch:
+        - action: sync
+          path: web/
+          target: /app/web/
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+    environment:
+      PORT: 8000
