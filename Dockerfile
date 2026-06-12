@@ -1,4 +1,5 @@
 FROM node:20-alpine
 WORKDIR /app
+RUN npm install -g tsx
 COPY . .
-CMD ["node", "web/index.js"]
+CMD ["tsx", "watch", "web/index.js"]

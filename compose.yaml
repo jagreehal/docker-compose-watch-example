@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    command: 'node --watch web/index.js'
+    command: 'tsx watch web/index.js'
     ports:
       - 8000:8000
     develop:
@@ -9,6 +9,7 @@ services:
         - action: sync
           path: web/
           target: /app/web/
+          initial_sync: true
           ignore:
             - node_modules/
         - action: rebuild
